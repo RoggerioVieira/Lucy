@@ -1,0 +1,18 @@
+# Lucy - Assistente Virtual
+# Instalação: pip install -r requirements.txt
+
+# Reconhecimento e síntese de fala
+SpeechRecognition>=3.10.0
+pyttsx3>=2.90
+PyAudio>=0.2.13  # Pode precisar instalar portaudio19-dev no Linux primeiro
+
+# Machine Learning e processamento
+scikit-learn>=1.3.0
+numpy>=1.24.0
+
+# Opcional: Para melhor precisão no reconhecimento de fala
+# openai-whisper  # Descomente se quiser usar Whisper em vez de Google Speech
+
+# Opcional: Para integração com APIs externas
+# requests>=2.31.0
+# python-dotenv>=1.0.0  # Para variáveis de ambiente

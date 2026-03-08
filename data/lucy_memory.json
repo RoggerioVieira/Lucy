@@ -1,0 +1,37 @@
+{
+  "user_facts": {
+    "nome": "rogério"
+  },
+  "preferences": {},
+  "routines": {
+    "15": [
+      "outro",
+      "lucy",
+      "outro",
+      "outro",
+      "musica",
+      "outro",
+      "outro",
+      "outro",
+      "outro",
+      "pessoal",
+      "pessoal",
+      "pessoal"
+    ],
+    "16": [
+      "lucy",
+      "outro"
+    ]
+  },
+  "command_mappings": {
+    "modo foco": "tocar música clássica"
+  },
+  "interaction_count": 14,
+  "first_meeting": "2026-03-08T15:33:02.249607",
+  "lucy_facts": {
+    "name": "Lucy",
+    "birth_date": "2026-03-08T15:33:02.249607",
+    "version": "1.1",
+    "personality": "amigável, curiosa e atenta"
+  }
+}

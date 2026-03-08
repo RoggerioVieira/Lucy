@@ -1,0 +1,65 @@
+{
+  "humor_level": 0.5,
+  "formality": 0.3,
+  "curiosity": 0.8,
+  "empathy": 0.7,
+  "user_mood_history": [
+    {
+      "timestamp": "2026-03-08T15:39:29.135168",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:39:57.049784",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:40:31.325524",
+      "mood": "positive"
+    },
+    {
+      "timestamp": "2026-03-08T15:40:59.416820",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:41:26.096166",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:41:31.944397",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:41:49.300385",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:42:01.741963",
+      "mood": "negative"
+    },
+    {
+      "timestamp": "2026-03-08T15:42:46.435280",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:42:52.660804",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:43:05.592880",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T15:43:19.293499",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T16:38:04.756091",
+      "mood": "neutral"
+    },
+    {
+      "timestamp": "2026-03-08T16:51:07.864380",
+      "mood": "neutral"
+    }
+  ],
+  "conversation_depth": 0
+}
