@@ -1,0 +1,10 @@
+{
+  "status": "healthy",
+  "components": {
+    "structure": "ok",
+    "dependencies": "ok",
+    "data": "ok",
+    "skills": "5 skills"
+  },
+  "recommendations": []
+}

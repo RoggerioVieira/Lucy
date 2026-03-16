@@ -3,30 +3,56 @@ import os
 import pickle
 from datetime import datetime
 from collections import defaultdict
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
+from pathlib import Path
+
+# Tentativa de importar bibliotecas de ML (opcionais para não travar o sistema)
+try:
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.naive_bayes import MultinomialNB
+except ImportError:
+    TfidfVectorizer = None
+    MultinomialNB = None
+
+# Importa as configurações do seu config.py
+try:
+    from config import MEMORY_CONFIG
+except ImportError:
+    # Fallback caso o config.py não seja encontrado
+    BASE_DIR = Path(__file__).parent.parent
+    DATA_DIR = BASE_DIR / "data"
+    MEMORY_CONFIG = {
+        'memory_file': DATA_DIR / "lucy_memory.json",
+        'patterns_file': DATA_DIR / "lucy_patterns.pkl",
+        'personality_file': DATA_DIR / "lucy_personality.json",
+        'history_file': DATA_DIR / "lucy_history.json",
+    }
 
 class LucyMemory:
-    """Sistema de memória persistente da Lucy"""
+    """Sistema de memória persistente da Lucy - Corrigido para caminhos absolutos"""
 
     def __init__(self):
-        self.memory_file = "lucy_memory.json"
-        self.patterns_file = "lucy_patterns.pkl"
-        self.personality_file = "lucy_personality.json"
-        self.history_file = "lucy_history.json"
+        # 1. Carrega os caminhos do config.py
+        self.memory_file = MEMORY_CONFIG['memory_file']
+        self.patterns_file = MEMORY_CONFIG['patterns_file']
+        self.personality_file = MEMORY_CONFIG['personality_file']
+        self.history_file = MEMORY_CONFIG['history_file']
 
+        # 2. Garante que a pasta 'data' existe antes de tentar carregar/salvar
+        Path(self.memory_file).parent.mkdir(parents=True, exist_ok=True)
+
+        # 3. Inicializa os dados
         self.data = self.load_memory()
         self.personality = self.load_personality()
         self.model_data = self.load_or_init_model()
         self.conversation_history = self.load_history()
 
     def load_memory(self):
-        """Carrega memória principal com tratamento de erros"""
+        """Carrega memória principal com suporte a caminhos Path e tratamento de erros"""
         if os.path.exists(self.memory_file):
             try:
                 with open(self.memory_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    # Reconstruir defaultdict
+                    # Reconstruir defaultdict para as rotinas
                     if 'routines' in data:
                         routines = defaultdict(list)
                         routines.update(data['routines'])
@@ -36,7 +62,7 @@ class LucyMemory:
                 print(f"⚠️ Erro ao carregar memória: {e}. Criando nova.")
 
         return {
-            "user_facts": {},
+            "user_facts": {"nome": "amigo"}, # Valor padrão inicial
             "preferences": {},
             "routines": defaultdict(list),
             "command_mappings": {},
@@ -51,7 +77,7 @@ class LucyMemory:
         }
 
     def load_personality(self):
-        """Carrega traços de personalidade"""
+        """Carrega traços de personalidade da pasta data"""
         if os.path.exists(self.personality_file):
             try:
                 with open(self.personality_file, 'r', encoding='utf-8') as f:
@@ -69,7 +95,7 @@ class LucyMemory:
         }
 
     def load_or_init_model(self):
-        """Carrega modelo de ML ou inicializa novo"""
+        """Carrega modelo de ML (.pkl) da pasta data"""
         if os.path.exists(self.patterns_file):
             try:
                 with open(self.patterns_file, 'rb') as f:
@@ -77,14 +103,15 @@ class LucyMemory:
             except (pickle.UnpicklingError, IOError):
                 print("⚠️ Modelo corrompido. Inicializando novo.")
 
+        # Inicialização segura caso sklearn não esteja instalado
         return {
-            'vectorizer': TfidfVectorizer(max_features=100),
-            'classifier': MultinomialNB(),
+            'vectorizer': TfidfVectorizer(max_features=100) if TfidfVectorizer else None,
+            'classifier': MultinomialNB() if MultinomialNB else None,
             'patterns': defaultdict(list)
         }
 
     def load_history(self):
-        """Carrega histórico de conversas"""
+        """Carrega histórico de conversas da pasta data"""
         if os.path.exists(self.history_file):
             try:
                 with open(self.history_file, 'r', encoding='utf-8') as f:
@@ -100,34 +127,34 @@ class LucyMemory:
             'user': user_msg,
             'lucy': lucy_response
         })
-        # Manter apenas últimas 20 interações
+        # Manter apenas as últimas 20 interações
         if len(self.conversation_history) > 20:
             self.conversation_history = self.conversation_history[-20:]
 
-    def get_context(self, last_n=3):
-        """Retorna contexto recente da conversa"""
-        return self.conversation_history[-last_n:] if self.conversation_history else []
-
     def save_all(self):
-        """Salva todos os dados de forma atômica"""
+        """Salva todos os dados na pasta correta de forma atômica"""
         try:
-            # Salvar Memory
+            # 1. Salvar Memory (Converter defaultdict para dict normal para o JSON aceitar)
             mem_to_save = self.data.copy()
-            mem_to_save['routines'] = dict(self.data['routines'])
+            if isinstance(mem_to_save.get('routines'), defaultdict):
+                mem_to_save['routines'] = dict(mem_to_save['routines'])
+            
             with open(self.memory_file, 'w', encoding='utf-8') as f:
                 json.dump(mem_to_save, f, indent=2, ensure_ascii=False)
 
-            # Salvar Personality
+            # 2. Salvar Personality
             with open(self.personality_file, 'w', encoding='utf-8') as f:
                 json.dump(self.personality, f, indent=2, ensure_ascii=False)
 
-            # Salvar History
+            # 3. Salvar History
             with open(self.history_file, 'w', encoding='utf-8') as f:
                 json.dump(self.conversation_history, f, indent=2, ensure_ascii=False)
 
-            # Salvar Model
+            # 4. Salvar Model (Pickle)
             with open(self.patterns_file, 'wb') as f:
                 pickle.dump(self.model_data, f)
 
+            print(f"💾 Memória salva com sucesso em: {Path(self.memory_file).parent}")
+
         except Exception as e:
-            print(f"❌ Erro ao salvar dados: {e}")
+            print(f"❌ Erro ao salvar dados na pasta data: {e}")

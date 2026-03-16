@@ -1,65 +1,5 @@
 [
   {
-    "timestamp": "2026-03-08T15:39:29.135168",
-    "user": "qual é o seu",
-    "lucy": "Interessante! Estou processando isso. Pode me contar mais?"
-  },
-  {
-    "timestamp": "2026-03-08T15:39:57.049784",
-    "user": "qual é o seu nome?",
-    "lucy": "Sou a Lucy! Estou aprendendo com você desde 2026-03-08. Já conversamos 1 vezes! 🤖"
-  },
-  {
-    "timestamp": "2026-03-08T15:40:31.325524",
-    "user": "estou muito feliz hoje",
-    "lucy": "Que ótimo ouvir isso! 😊 Interessante! Estou processando isso. Pode me contar mais?"
-  },
-  {
-    "timestamp": "2026-03-08T15:40:59.416820",
-    "user": "modo foco",
-    "lucy": "Interessante! Estou processando isso. Pode me contar mais?"
-  },
-  {
-    "timestamp": "2026-03-08T15:41:26.096166",
-    "user": "\"quando eu disser 'modo foco' você deve tocar música clássica\"",
-    "lucy": "✅ Aprendido! Quando você disser ''modo foco'', vou: tocar música clássica\""
-  },
-  {
-    "timestamp": "2026-03-08T15:41:31.944397",
-    "user": "modo foco",
-    "lucy": "Interessante! Estou processando isso. Pode me contar mais?"
-  },
-  {
-    "timestamp": "2026-03-08T15:41:49.300385",
-    "user": "\"modo foco\"",
-    "lucy": "Interessante! Estou processando isso. Pode me contar mais?"
-  },
-  {
-    "timestamp": "2026-03-08T15:42:01.741963",
-    "user": "\"estou cansado\"",
-    "lucy": "Entendo... às vezes precisamos de um momento. Posso fazer algo para ajudar? Interessante! Estou processando isso. Pode me contar mais?"
-  },
-  {
-    "timestamp": "2026-03-08T15:42:46.435280",
-    "user": "me chame de rogério",
-    "lucy": "Interessante! Estou processando isso. Pode me contar mais?"
-  },
-  {
-    "timestamp": "2026-03-08T15:42:52.660804",
-    "user": "qual é o meu nome",
-    "lucy": "Ainda não sei seu nome. Pode me dizer?"
-  },
-  {
-    "timestamp": "2026-03-08T15:43:05.592880",
-    "user": "meu nome é rogério",
-    "lucy": "Entendi! Vou lembrar que seu nome é: rogério"
-  },
-  {
-    "timestamp": "2026-03-08T15:43:19.293499",
-    "user": "quem sou eu ?",
-    "lucy": "Entendi! Vou lembrar que seu trabalho é: eu ?"
-  },
-  {
     "timestamp": "2026-03-08T16:38:04.756091",
     "user": "qual é o seu nome",
     "lucy": "Sou a Lucy! 🤖 Nasci em 2026-03-08. Já conversamos 12 vezes!"
@@ -68,5 +8,95 @@
     "timestamp": "2026-03-08T16:51:07.864380",
     "user": "como está o dia hoje",
     "lucy": "Não entendi completamente, mas estou aprendendo! Pode me ensinar?"
+  },
+  {
+    "timestamp": "2026-03-08T21:02:45.229086",
+    "user": "lembre-me de fazer café em um minuto",
+    "lucy": "Diga o tempo claramente, como por exemplo: em 10 minutos."
+  },
+  {
+    "timestamp": "2026-03-08T21:03:06.452062",
+    "user": "lembreme de fazer cafe em 1 minuto",
+    "lucy": "Certo. Daqui a 1 minuto eu te aviso sobre: Me   fazer cafe."
+  },
+  {
+    "timestamp": "2026-03-08T21:10:20.912328",
+    "user": "lembre-me de fazer café em um",
+    "lucy": "Diga o tempo claramente, como por exemplo: em 10 minutos."
+  },
+  {
+    "timestamp": "2026-03-08T21:12:07.726612",
+    "user": "strike min",
+    "lucy": "Não entendi o comando. Pode repetir de outra forma ou me ensinar o que devo fazer?"
+  },
+  {
+    "timestamp": "2026-03-08T21:18:06.904540",
+    "user": "lembre",
+    "lucy": "Vou te lembrar de Lembre daqui a uma hora, já que não definiu um tempo."
+  },
+  {
+    "timestamp": "2026-03-08T21:18:14.094563",
+    "user": "lembre-me de fazer café em um",
+    "lucy": "Certo. Daqui a 1 minuto eu te aviso sobre: Fazer café um."
+  },
+  {
+    "timestamp": "2026-03-08T21:19:33.301884",
+    "user": "lucy",
+    "lucy": "Não entendi o comando. Pode repetir de outra forma ou me ensinar o que devo fazer?"
+  },
+  {
+    "timestamp": "2026-03-08T21:20:03.165853",
+    "user": "quero que ela seja ativada somente para",
+    "lucy": "Não entendi o comando. Pode repetir de outra forma ou me ensinar o que devo fazer?"
+  },
+  {
+    "timestamp": "2026-03-08T21:37:39.958013",
+    "user": "agendar café em um",
+    "lucy": "Não entendi o comando. Pode repetir de outra forma ou me ensinar o que devo fazer?"
+  },
+  {
+    "timestamp": "2026-03-08T21:38:44.159986",
+    "user": "lembrar de fazer café em um",
+    "lucy": "Certo. Daqui a 1 minuto eu te aviso sobre: Fazer café um."
+  },
+  {
+    "timestamp": "2026-03-08T21:46:31.707657",
+    "user": "luc",
+    "lucy": "Não entendi o comando. Pode repetir de outra forma ou me ensinar o que devo fazer?"
+  },
+  {
+    "timestamp": "2026-03-08T21:47:08.992868",
+    "user": "lembre-se de fazer café em um minuto",
+    "lucy": "Certo. Daqui a 1 minuto eu te aviso sobre: Lembre-se de fazer café em um minuto."
+  },
+  {
+    "timestamp": "2026-03-08T21:52:26.461386",
+    "user": "encerrar",
+    "lucy": "Não entendi o comando. Pode repetir de outra forma ou me ensinar o que devo fazer?"
+  },
+  {
+    "timestamp": "2026-03-08T21:56:57.796425",
+    "user": "lembre-me de fazer café em um",
+    "lucy": "Certo. Daqui a 1 minuto eu te aviso sobre: Fazer café em um."
+  },
+  {
+    "timestamp": "2026-03-08T22:01:10.772258",
+    "user": "lembre-me de fazer café em um minuto",
+    "lucy": "Certo. Daqui a 1 minuto eu te aviso sobre: Fazer café em um minuto."
+  },
+  {
+    "timestamp": "2026-03-08T22:01:41.879498",
+    "user": "ô  que dia é",
+    "lucy": "Não entendi o comando. Pode repetir de outra forma ou me ensinar o que devo fazer?"
+  },
+  {
+    "timestamp": "2026-03-08T22:08:16.897104",
+    "user": "lembre-me",
+    "lucy": "Vou te lembrar de Lembre-me daqui a uma hora, já que não definiu um tempo."
+  },
+  {
+    "timestamp": "2026-03-08T22:08:21.508852",
+    "user": "lembre de fazer café em um minuto",
+    "lucy": "Certo. Daqui a 1 minuto eu te aviso sobre: Lembre de fazer café em um minuto."
   }
 ]
