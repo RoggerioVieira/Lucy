@@ -36,6 +36,7 @@ class LucyMemory:
         self.patterns_file = MEMORY_CONFIG['patterns_file']
         self.personality_file = MEMORY_CONFIG['personality_file']
         self.history_file = MEMORY_CONFIG['history_file']
+        self.context_stack = []  # Guarda os ultimos 5 diálogos (user, Lucy)
 
         # 2. Garante que a pasta 'data' existe antes de tentar carregar/salvar
         Path(self.memory_file).parent.mkdir(parents=True, exist_ok=True)
@@ -45,6 +46,22 @@ class LucyMemory:
         self.personality = self.load_personality()
         self.model_data = self.load_or_init_model()
         self.conversation_history = self.load_history()
+
+
+    def add_context(self, user_input, lucy_response):
+        """Adiciona uma interação à memória de curto prazo."""
+        self.context_stack.append({
+            'timestamp': datetime.now().isoformat(),
+            'user': user_input,
+            'lucy': lucy_response
+        })
+        # Manter apenas os últimos 5 diálogos
+        if len(self.context_stack) > 5:
+            self.context_stack.pop(0)
+
+    def get_last_context(self):
+        """Retorna a última coisa que foi dita."""
+        return self.context_stack[-1] if self.context_stack else None
 
     def load_memory(self):
         """Carrega memória principal com suporte a caminhos Path e tratamento de erros"""

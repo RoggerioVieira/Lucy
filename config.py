@@ -1,5 +1,8 @@
 from pathlib import Path
 
+# API de Conhecimento Externo
+BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"
+
 # Caminho absoluto para a pasta da Lucy
 BASE_DIR = Path(r"C:\Users\Roger\OneDrive\Desktop\Lucy")
 DATA_DIR = BASE_DIR / "data"
@@ -13,6 +16,7 @@ MEMORY_CONFIG = {
     'personality_file': DATA_DIR / "lucy_personality.json",
     'patterns_file': DATA_DIR / "lucy_patterns.pkl",
     'history_file': DATA_DIR / "lucy_history.json",
+    
 }
 
 # Mantém as tuas SKILLS
@@ -32,3 +36,4 @@ LUCY_CONFIG = {
     'snooze_minutes': 10,
     'save_interval': 5, # salva a cada 5 interações
 }
+
