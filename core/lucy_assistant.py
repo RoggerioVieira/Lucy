@@ -6,7 +6,11 @@ import logging
 from datetime import datetime
 from queue import Queue
 
-# Importamos as tuas configurações
+# Importações do Sistema Cognitivo
+from core.memory_system.episodic import EpisodicMemory
+from core.memory_system.social import SocialCortex
+
+# Importação das configurações
 try:
     from config import BASE_DIR, DATA_DIR, MEMORY_CONFIG, SKILLS_CONFIG, LUCY_CONFIG
 except ImportError:
@@ -18,7 +22,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
     handlers=[
-        logging.FileHandler(DATA_DIR / "lucy_system.log"),
+        logging.FileHandler(DATA_DIR / "lucy_system.log", encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -26,36 +30,40 @@ logger = logging.getLogger("LucyCore")
 
 class Lucy:
     """
-    ASSISTENTE LUCY - VERSÃO DEFINITIVA
-    Utiliza caminhos absolutos do config.py e sistema de mensageria assíncrona.
+    ASSISTENTE LUCY - VERSÃO HUMANOIDE
+    Gere voz, inteligência e memória biológica de forma assíncrona.
     """
     
     def __init__(self):
+        # 1. Camada de Memória Cognitiva
+        self.episodic_memory = EpisodicMemory()
+        self.social_cortex = SocialCortex()
+        
+        # 2. Estado do Sistema
         self._start_time = time.time()
-        self._is_speaking = False  # Previne colisão de áudio
+        self._is_speaking = False  
         self.running = False
         self.conversation_count = 0
-        self.msg_queue = Queue()   # Fila de lembretes e avisos
+        self.msg_queue = Queue()   # Fila para notificações e lembretes
         
-        logger.info(f"🚀 Iniciando Lucy em {BASE_DIR}")
+        logger.info(f"🚀 Inicializando sistemas cognitivos em {BASE_DIR}")
         
-        # 1. Sistema de Memória (Camada de Dados)
+        # 3. Persistência de Dados (Memória de Fatos)
         try:
             from core.lucy_memory import LucyMemory
-            # Passamos o dicionário de caminhos que você definiu
             self.memory = LucyMemory(config=MEMORY_CONFIG)
             self.user_name = self.memory.data.get("user_facts", {}).get("nome", "amigo")
         except Exception as e:
-            logger.critical(f"Falha ao carregar persistência: {e}")
+            logger.critical(f"Falha ao carregar persistência de dados: {e}")
             sys.exit(1)
 
-        # 2. Hardware e Inteligência
+        # 4. Interface Sensorial e Processamento
         from core.lucy_voice import LucyVoice
         from core.lucy_brain import LucyBrain
         self.voice = LucyVoice(self.user_name)
         self.brain = LucyBrain(self.memory)
         
-        # 3. Gerenciamento de Skills (Modulável)
+        # 5. Módulo de Competências (Skills)
         self.skill_manager = None
         self.reminder_skill = None
         self._init_skills_system()
@@ -63,36 +71,29 @@ class Lucy:
         self._init_templates()
 
     def _init_skills_system(self):
-        """Inicializa skills baseado no seu SKILLS_CONFIG"""
+        """Carrega o gestor de competências e o sistema de lembretes"""
         try:
             from skills.skill_manager import SkillManager
             self.skill_manager = SkillManager(self.memory)
             
-            # Carrega referência direta apenas se habilitado no seu config
             if SKILLS_CONFIG['reminder']['enabled']:
                 self.reminder_skill = self.skill_manager._get_skill_instance("reminder")
         except Exception as e:
-            logger.warning(f"⚠️ Erro ao carregar SkillManager: {e}. Tentando fallback direto...")
-            # Fallback de segurança para Reminder
-            if SKILLS_CONFIG['reminder']['enabled']:
-                try:
-                    from skills.reminder_skill import ReminderSkill
-                    self.reminder_skill = ReminderSkill(self.memory)
-                except:
-                    logger.error("❌ Falha total no sistema de lembretes.")
+            logger.warning(f"⚠️ Aviso: SkillManager indisponível ({e}). Usando modo reduzido.")
 
     def _init_templates(self):
+        """Saudações baseadas no tempo e contexto"""
         hour = datetime.now().hour
         period = "Bom dia" if 5 <= hour < 12 else "Boa tarde" if 12 <= hour < 18 else "Boa noite"
         self.greetings = [
-            f"{period}, {self.user_name}! Estou pronta.",
-            f"Oi {self.user_name}, Lucy online. Como posso ajudar?",
-            f"Sistemas carregados em {LUCY_CONFIG['timezone']}. O que temos para hoje?"
+            f"{period}, {self.user_name}! Sistemas cognitivos ativos.",
+            f"Oi {self.user_name}, Lucy online. Como posso ajudar o meu humano hoje?",
+            f"Ambiente verificado em {LUCY_CONFIG['timezone']}. Estou pronta para interagir."
         ]
-        self.farewells = ["Encerrando por agora. Até logo!", "Lucy entrando em standby. Tchau!"]
+        self.farewells = ["A hibernar sistemas. Até logo!", "Lucy em standby. Tchau!"]
 
     def speak(self, text):
-        """Bloqueia a flag de fala para evitar interrupções de lembretes"""
+        """Executa a fala garantindo que não há sobreposição com notificações"""
         if not text: return
         self._is_speaking = True
         try:
@@ -100,81 +101,85 @@ class Lucy:
         finally:
             self._is_speaking = False
 
-    # --- WATCHER DE LEMBRETES ---
-
     def _start_reminder_watcher(self):
-        """Thread que monitora a skill de lembretes"""
+        """Monitoriza eventos em tempo real (Lembretes/Alertas)"""
         if not self.reminder_skill: return
 
         def watcher_loop():
-            logger.info("🔔 Monitor de lembretes ativo.")
+            logger.info("🔔 Monitor sensorial de tempo ativo.")
             while self.running:
                 try:
-                    # Coleta o que a skill produziu e joga na fila
                     pending = self.reminder_skill.get_pending_audio()
                     for msg in pending:
                         self.msg_queue.put(msg)
                 except Exception as e:
-                    logger.debug(f"Watcher loop noise: {e}")
+                    logger.debug(f"Erro no watcher: {e}")
                 time.sleep(LUCY_CONFIG['watcher_interval'])
 
         threading.Thread(target=watcher_loop, daemon=True).start()
 
-    # --- LOOP PRINCIPAL ---
-
     def run(self):
+        """Inicia o loop vital da Lucy"""
         self.running = True
         self._start_reminder_watcher()
         self.speak(random.choice(self.greetings))
 
         try:
             while self.running:
-                # A. PROCESSA FILA ASSÍNCRONA (Avisos/Lembretes)
+                # 1. Atender notificações prioritárias (Fila de Mensagens)
                 while not self.msg_queue.empty():
                     if not self._is_speaking:
                         msg = self.msg_queue.get()
-                        logger.info(f"🔔 Disparando lembrete: {msg}")
+                        logger.info(f"🔔 Evento disparado: {msg}")
                         self.speak(f"Com licença, {self.user_name}. {msg}")
                     else:
-                        time.sleep(0.5)
-                        break
+                        break # Aguarda a fala atual terminar
 
-                # B. ESCUTA USUÁRIO
+                # 2. Perceção (Escuta o ambiente)
                 user_input = self.voice.listen()
                 if not user_input: continue
 
-                # C. COMANDOS DE SISTEMA
+                # 3. Comandos Críticos de Sistema
                 if self._handle_system_commands(user_input): continue
 
-                # D. EXECUÇÃO DO CÉREBRO
+                # 4. Processamento e Ação
                 start_time = time.time()
                 self._execute_pipeline(user_input)
                 
-                # Check de performance baseado no seu threshold (1500ms)
+                # Monitorização de Latência Cognitiva
                 duration = (time.time() - start_time) * 1000
                 if duration > LUCY_CONFIG['slow_response_threshold']:
-                    logger.warning(f"🐢 Resposta lenta: {duration:.0f}ms")
+                    logger.warning(f"🐢 Latência cognitiva alta: {duration:.0f}ms")
 
         except KeyboardInterrupt:
             self._shutdown()
 
     def _execute_pipeline(self, user_input):
+        """Decide se usa uma Skill ou o Cérebro geral"""
         response = None
         
-        # 1. Skills
+        # Prioridade 1: Competências específicas
         if self.skill_manager:
             response, _ = self.skill_manager.find_and_execute(user_input)
-        elif self.reminder_skill and self.reminder_skill.can_handle(user_input):
-            response = self.reminder_skill.handle(user_input)
 
-        # 2. Brain
+        # Prioridade 2: Processamento Neural (Brain)
         if not response:
             response = self.brain.think(user_input)
 
-        self.speak(response or "Não consegui processar isso, pode repetir?")
-        self.conversation_count += 1
+        final_response = response or "A minha rede neural não gerou uma resposta. Pode reformular?"
+        self.speak(final_response)
         
-        # Autosave baseado no seu config.py
+        # --- REGISTO DE MEMÓRIA EPISÓDICA (Fase Humanoide) ---
+        self.episodic_memory.create_episode(
+            event_type="dialogue",
+            agent=self.user_name,
+            location="environment_alpha", # Localização base
+            content={"input": user_input, "output": final_response},
+            valence=0.5 # Neutro por padrão, expansível para análise de sentimento
+        )
+        self.social_cortex.update_interaction(self.user_name)
+        
+        self.conversation_count += 1
         if self.conversation_count % LUCY_CONFIG['save_interval'] == 0:
             self._background_save()
 
@@ -184,22 +189,26 @@ class Lucy:
             self._shutdown()
             return True
         if 'status' in t:
-            active_reminders = len([r for r in self.reminder_skill.reminders if not r.get('triggered')]) if self.reminder_skill else 0
-            self.speak(f"Estou operando normalmente. Temos {active_reminders} lembretes pendentes.")
+            self.speak("Sistemas operacionais. Memória episódica e córtex social ativos.")
             return True
         return False
 
     def _background_save(self):
-        logger.info("💾 Executando autosave em background...")
+        """Consolidação de memória em background"""
+        logger.info("💾 Consolidando memórias...")
         threading.Thread(target=self.memory.save_all, daemon=True).start()
 
     def _shutdown(self):
-        logger.info("🛑 Desligando Lucy...")
+        logger.info("🛑 Hibernando sistemas...")
         self.running = False
         self.speak(random.choice(self.farewells))
         self.memory.save_all()
+        self.social_cortex.save() # Garante que o progresso social é salvo
         self.voice.stop()
         sys.exit(0)
 
 if __name__ == "__main__":
-    Lucy().run()
+    try:
+        Lucy().run()
+    except Exception as e:
+        logger.error(f"Kernel Panic: {e}")
