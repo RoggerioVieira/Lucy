@@ -1,0 +1,12 @@
+{
+    "id": "fc963e43-b4ac-4691-af35-cb6c4e92f2d8",
+    "timestamp": "2026-05-01T19:36:07.389496",
+    "event_type": "dialogue",
+    "agent": "rogério",
+    "location": "environment_alpha",
+    "content": {
+        "input": "cruze que dia é",
+        "output": "Minha conexão neural com a nuvem falhou. Estou restrita ao modo offline."
+    },
+    "valence": 0.5
+}

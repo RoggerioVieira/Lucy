@@ -1,0 +1,12 @@
+{
+    "id": "204939f7-59ec-4775-845f-2b67cdedeed4",
+    "timestamp": "2026-05-01T18:41:48.549625",
+    "event_type": "dialogue",
+    "agent": "rogério",
+    "location": "environment_alpha",
+    "content": {
+        "input": "olá lucy",
+        "output": "Minha conexão neural com a nuvem falhou. Estou restrita às minhas funções básicas locais no momento."
+    },
+    "valence": 0.5
+}

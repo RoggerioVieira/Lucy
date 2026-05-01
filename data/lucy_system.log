@@ -1,0 +1,251 @@
+2026-05-01 18:38:07,372 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 18:38:18,894 [CRITICAL] LucyCore: Falha ao carregar persistência de dados: LucyMemory.__init__() got an unexpected keyword argument 'config'
+2026-05-01 18:41:01,435 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 18:41:03,756 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 18:41:03,756 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 18:41:03,854 [INFO] comtypes.client._generate: Could not import comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4: Typelib different than module
+2026-05-01 18:41:03,891 [INFO] comtypes.client._generate: # Generating comtypes.gen._C866CA3A_32F7_11D2_9602_00C04F8EE628_0_5_4
+2026-05-01 18:41:03,978 [INFO] comtypes.client._generate: # Generating comtypes.gen.SpeechLib
+2026-05-01 18:41:06,207 [CRITICAL] LucyBrainCloud: 🚨 Chave da API do Gemini não configurada!
+2026-05-01 18:41:06,207 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 18:41:06,208 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 18:41:06,287 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 18:41:15,055 [INFO] LucyCore: 🔔 Evento disparado: Com licença rogério, seu lembrete: Lembre-me o café às 2.
+2026-05-01 18:41:15,147 [INFO] LucyCore: 🔔 Evento disparado: Com licença rogério, seu lembrete: Lembre-me de tomar café.
+2026-05-01 18:41:15,241 [INFO] LucyCore: 🔔 Evento disparado: Com licença rogério, seu lembrete: Lembre-me de tomar café.
+2026-05-01 18:41:36,010 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 18:41:48,327 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2026-05-01 18:41:48,552 [WARNING] LucyCore: 🐢 Latência cognitiva alta: 12541ms
+2026-05-01 18:44:37,738 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 18:44:37,740 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 18:44:37,742 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 18:44:37,744 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 18:47:23,204 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 18:47:25,111 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 18:47:25,111 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 18:47:26,250 [CRITICAL] LucyBrainCloud: 🚨 Chave da API do Gemini não configurada!
+2026-05-01 18:47:26,250 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 18:47:26,250 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 18:47:26,280 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 18:47:36,784 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 18:47:49,042 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2026-05-01 18:47:49,137 [WARNING] LucyCore: 🐢 Latência cognitiva alta: 12354ms
+2026-05-01 18:48:17,007 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 18:48:17,165 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 18:48:17,165 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 18:48:17,167 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 18:50:38,396 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 18:50:40,268 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 18:50:40,269 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 18:50:41,279 [CRITICAL] LucyBrainCloud: 🚨 Chave da API do Gemini não configurada!
+2026-05-01 18:50:41,279 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 18:50:41,279 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 18:50:41,295 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 18:50:55,244 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 18:51:07,471 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 
+  No API_KEY or ADC found. Please either:
+    - Set the `GOOGLE_API_KEY` environment variable.
+    - Manually pass the key with `genai.configure(api_key=my_api_key)`.
+    - Or set up Application Default Credentials, see https://ai.google.dev/gemini-api/docs/oauth for more information.
+2026-05-01 18:51:07,567 [WARNING] LucyCore: 🐢 Latência cognitiva alta: 12324ms
+2026-05-01 18:51:14,439 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 18:51:14,525 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 18:51:14,526 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 18:51:14,528 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 18:55:19,707 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 18:55:21,565 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 18:55:21,566 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 18:55:22,599 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 18:55:22,599 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 18:55:22,609 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 18:55:35,132 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 18:55:36,218 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-05-01 18:57:44,839 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 18:57:44,845 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 18:57:44,848 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 18:57:44,857 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 18:58:06,177 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 18:58:07,616 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 18:58:07,617 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 18:58:08,602 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 18:58:08,602 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 18:58:08,617 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 18:58:34,579 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 18:58:34,906 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-05-01 18:58:47,495 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 18:58:47,753 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-05-01 18:59:25,830 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 18:59:25,908 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 18:59:25,909 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 18:59:25,910 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:03:08,348 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:03:10,173 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:03:10,175 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:03:10,945 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:03:10,946 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:03:10,965 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:04:50,820 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:04:51,919 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:04:51,920 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:04:52,772 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:04:52,773 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:04:52,789 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:05:05,209 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:05:06,295 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 46.693550699s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 46
+}
+]
+2026-05-01 19:07:35,997 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 19:07:35,999 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 19:07:35,999 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 19:07:36,002 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:07:48,584 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:07:50,003 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:07:50,005 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:07:50,957 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:07:50,960 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:07:51,002 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:08:08,916 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:08:09,347 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-05-01 19:08:21,336 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 19:08:21,422 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 19:08:21,423 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 19:08:21,424 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:09:52,038 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:09:53,628 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:09:53,628 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:09:54,543 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:09:54,544 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:09:54,555 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:10:07,614 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:10:08,613 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-05-01 19:10:28,752 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 19:10:28,835 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 19:10:28,835 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 19:10:28,836 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:19:15,693 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:19:17,709 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:19:17,711 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:19:18,787 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:19:18,787 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:19:18,798 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:19:29,674 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:19:30,081 [ERROR] LucyBrainCloud: Erro ao conectar com a nuvem: 404 models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2026-05-01 19:19:40,471 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 19:19:40,550 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 19:19:40,551 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 19:19:40,553 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:24:59,681 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:25:01,370 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:25:01,373 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:28:39,341 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:28:40,782 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:28:40,784 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:28:43,425 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:28:43,426 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:28:43,471 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:28:58,141 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:28:58,142 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-05-01 19:28:58,568 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent "HTTP/1.1 404 Not Found"
+2026-05-01 19:28:58,571 [ERROR] LucyBrainCloud: Erro Gemini: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-05-01 19:29:07,444 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 19:29:07,521 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 19:29:07,522 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 19:29:07,525 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:35:49,724 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:35:51,093 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:35:51,094 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:35:52,941 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:35:52,942 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:35:53,021 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:36:05,977 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:36:05,978 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-05-01 19:36:07,291 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-05-01 19:36:07,294 [ERROR] LucyBrainCloud: Erro Gemini: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\nPlease retry in 45.668235645s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'model': 'gemini-2.0-flash', 'location': 'global'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '45s'}]}}
+2026-05-01 19:36:15,613 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:36:15,614 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-05-01 19:36:15,891 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent "HTTP/1.1 429 Too Many Requests"
+2026-05-01 19:36:15,893 [ERROR] LucyBrainCloud: Erro Gemini: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash\nPlease retry in 37.070773656s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}, {'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_input_token_count', 'quotaId': 'GenerateContentInputTokensPerModelPerMinute-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.0-flash'}}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}
+2026-05-01 19:36:44,404 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 19:36:44,495 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 19:36:44,495 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 19:36:44,498 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:38:44,283 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:38:46,108 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:38:46,111 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:38:48,042 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:38:48,043 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:38:48,074 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:39:01,566 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:39:01,572 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-05-01 19:39:02,707 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-002:generateContent "HTTP/1.1 404 Not Found"
+2026-05-01 19:39:02,710 [ERROR] LucyBrainCloud: Erro Gemini: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash-002 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+2026-05-01 19:39:13,669 [INFO] LucyCore: 🛑 Hibernando sistemas...
+2026-05-01 19:39:13,750 [INFO] LucyCore: 💤 Executando ciclo de sono antes de desligar a energia...
+2026-05-01 19:39:13,751 [INFO] Lucy.SleepCycle: 💤 Iniciando ciclo de sono (Fase REM)...
+2026-05-01 19:39:13,753 [INFO] Lucy.SleepCycle: 🌅 Acordando! Memórias inúteis apagadas: 0
+2026-05-01 19:42:00,923 [INFO] LucyCore: 🚀 Inicializando sistemas cognitivos em C:\Users\Roger\OneDrive\Desktop\Lucy
+2026-05-01 19:42:02,681 [INFO] comtypes.client._code_cache: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Roger\\OneDrive\\Desktop\\Lucy\\.venv\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-05-01 19:42:02,684 [INFO] comtypes.client._code_cache: Using writeable comtypes cache directory: 'C:\Users\Roger\OneDrive\Desktop\Lucy\.venv\Lib\site-packages\comtypes\gen'
+2026-05-01 19:42:04,774 [INFO] LucyBrainCloud: ☁️ Cérebro de Nuvem (Gemini) inicializado e pronto.
+2026-05-01 19:42:04,775 [INFO] LucyCore: ☁️ Conectado ao Cérebro de Nuvem (Gemini).
+2026-05-01 19:42:04,823 [INFO] LucyCore: 🔔 Monitor sensorial de tempo ativo.
+2026-05-01 19:42:31,364 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:42:31,365 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-05-01 19:42:32,667 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-05-01 19:46:12,583 [INFO] LucyBrainCloud: ☁️ Enviando contexto para a nuvem...
+2026-05-01 19:46:12,586 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-05-01 19:46:14,560 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-05-01 19:46:14,573 [WARNING] LucyCore: 🐢 Latência cognitiva alta: 1993ms

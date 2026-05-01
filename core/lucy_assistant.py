@@ -56,7 +56,7 @@ class Lucy:
         # 3. Persistência de Dados (Memória de Fatos)
         try:
             from core.lucy_memory import LucyMemory
-            self.memory = LucyMemory(config=MEMORY_CONFIG)
+            self.memory = LucyMemory()
             self.user_name = self.memory.data.get("user_facts", {}).get("nome", "amigo")
         except Exception as e:
             logger.critical(f"Falha ao carregar persistência de dados: {e}")

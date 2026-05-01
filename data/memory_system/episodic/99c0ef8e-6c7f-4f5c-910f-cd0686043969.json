@@ -1,0 +1,12 @@
+{
+    "id": "99c0ef8e-6c7f-4f5c-910f-cd0686043969",
+    "timestamp": "2026-05-01T19:42:32.759216",
+    "event_type": "dialogue",
+    "agent": "rogério",
+    "location": "environment_alpha",
+    "content": {
+        "input": "que dia é hoje",
+        "output": "Oi, Rogério! Hoje é 1º de maio de 2026. Um ótimo dia para você! 😊"
+    },
+    "valence": 0.5
+}

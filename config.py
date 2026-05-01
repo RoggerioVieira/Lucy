@@ -1,5 +1,10 @@
 from pathlib import Path
 import os 
+from dotenv import load_dotenv
+
+env_path = Path(__file__).parent / ".env"
+load_dotenv(dotenv_path=env_path)
+
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY",)
 USE_CLOUD_BRAIN = True # Mude para False para usar o cerebro local (menos poderoso, mas sem dependências externas)
