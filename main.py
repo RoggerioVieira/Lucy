@@ -5,12 +5,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 # Importa a classe correta do arquivo de assistência
-from core.lucy_assistant import LucyAssistant
+from core.lucy_assistant import Lucy
 
 if __name__ == "__main__":
     try:
-        # Instancia a Lucy com o novo nome da classe
-        lucy = LucyAssistant()
+        # Instancia a Lucy
+        lucy = Lucy()
         
         # Inicia o loop principal (Escuta -> Pensa -> Fala)
         lucy.run()

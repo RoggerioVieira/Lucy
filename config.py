@@ -1,4 +1,8 @@
 from pathlib import Path
+import os 
+
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY",)
+USE_CLOUD_BRAIN = True # Mude para False para usar o cerebro local (menos poderoso, mas sem dependências externas)
 
 # API de Conhecimento Externo
 BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"

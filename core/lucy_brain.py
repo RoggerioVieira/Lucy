@@ -1,8 +1,8 @@
-from datetime import datetime
 import random
 import re
 import logging
 import requests  # Certifique-se de ter instalado: pip install requests
+from datetime import datetime
 
 # Configuração de log para observabilidade do cérebro
 logger = logging.getLogger("LucyBrain")
@@ -10,7 +10,7 @@ logger = logging.getLogger("LucyBrain")
 class LucyBrain:
     """
     Cérebro Cognitivo da Lucy - Versão Humanoide 1.2
-    Foco: Aprendizado orgânico, Contexto, Feedback e Expansão via Acervo Externo.
+    Foco: Aprendizado orgânico, Contexto, Espaço, Feedback e Expansão Externa.
     """
 
     def __init__(self, memory_obj):
@@ -127,20 +127,61 @@ class LucyBrain:
             return "Eu sou a Lucy, seu sistema cognitivo em evolução. Estou aprendendo com você."
         return None
 
-    def think(self, user_input):
-        """Fluxo de Consciência com Contexto, Feedback e Inteligência Externa."""
+    def process_spatial_commands(self, text, spatial_memory):
+        """Analisa o texto para aprender localizações ou responder perguntas espaciais."""
+        if not spatial_memory:
+            return None
+
+        text_lower = text.lower()
+
+        # 1. PERGUNTA: "Onde está a chave?" / "Onde deixei meu celular?"
+        if "onde está" in text_lower or "onde deixei" in text_lower:
+            words = text_lower.replace("?", "").split()
+            try:
+                idx = words.index("está") if "está" in words else words.index("deixei")
+                
+                # Pega o que vem depois de "está" ou "deixei"
+                obj_phrase = " ".join(words[idx+1:]).replace("o ", "").replace("a ", "").replace("meu ", "").replace("minha ", "")
+                
+                location = spatial_memory.locate_object(obj_phrase)
+                if location:
+                    return f"Pelo meu mapeamento, {obj_phrase} está na {location}."
+                else:
+                    return f"Ainda não tenho registros de onde está {obj_phrase} na minha memória espacial."
+            except ValueError:
+                pass
+
+        # 2. AFIRMAÇÃO: "A chave está na mesa da sala" / "Deixei o livro no quarto"
+        if "está no" in text_lower or "está na" in text_lower or "deixei" in text_lower:
+            if " está na " in text_lower:
+                parts = text_lower.split(" está na ")
+            elif " está no " in text_lower:
+                parts = text_lower.split(" está no ")
+            else:
+                return None # Não bateu com o padrão exato de mapeamento
+
+            if len(parts) == 2:
+                obj = parts[0].replace("o ", "").replace("a ", "").strip()
+                loc = parts[1].strip()
+                spatial_memory.update_object_location(obj, loc)
+                return f"Entendido. Memorizei que {obj} está na {loc}."
+
+        return None
+
+    def think(self, user_input, spatial_memory=None):
+        """Fluxo de Consciência com Contexto, Feedback, Espaço e Inteligência Externa."""
         text_clean = self.clean_text(user_input)
         if not text_clean: return "Estou ouvindo..."
 
-        # Recupera o contexto imediato (última interação) da Memória
-        last_interaction = self.m.get_last_context()
+        # Recupera o contexto imediato (última interação) de forma segura
+        last_interaction = getattr(self.m, 'get_last_context', lambda: None)()
 
         # --- CAMADA 0: FEEDBACK CORRETIVO (Prioridade Máxima) ---
         if last_interaction:
             negativas = ['não é isso', 'está errado', 'tá errado', 'você errou', 'mentira']
             if any(n in text_clean for n in negativas):
                 last_query = self.clean_text(last_interaction['user'])
-                if last_query in self.m.data['command_mappings']:
+                if last_query in self.m.data.get('command_mappings', {}):
                     del self.m.data['command_mappings'][last_query]
                     self.m.save_all()
                     return "Peço desculpas. Já corrigi meu erro e apaguei esse conhecimento da minha memória."
@@ -151,38 +192,41 @@ class LucyBrain:
                 return skill.handle(user_input)
 
         # --- CAMADA 2: MEMÓRIA ENSINADA (Comandos Customizados) ---
-        if text_clean in self.m.data['command_mappings']:
+        if text_clean in self.m.data.get('command_mappings', {}):
             return self.m.data['command_mappings'][text_clean]
 
-        # --- CAMADA 3: PROCESSAMENTO DE CONTEXTO ---
+        # --- CAMADA 3: PROCESSAMENTO ESPACIAL (Novo Sentido do Humanoide) ---
+        spatial_res = self.process_spatial_commands(text_clean, spatial_memory)
+        if spatial_res: return spatial_res
+
+        # --- CAMADA 4: PROCESSAMENTO DE CONTEXTO RECENTE ---
         if any(c in text_clean for c in ['repete', 'o que você disse', 'como é']):
             if last_interaction:
                 return f"Eu disse: {last_interaction['lucy']}"
 
-        # --- CAMADA 4: APRENDIZADO ATIVO/PASSIVO ---
+        # --- CAMADA 5: APRENDIZADO ATIVO/PASSIVO ---
         teaching_res = self.process_teaching(user_input)
         if teaching_res: return teaching_res
 
         fact_res = self.extract_facts(user_input)
         if fact_res: return fact_res
 
-        # --- CAMADA 5: UTILIDADES (Hora, Nome, etc) ---
+        # --- CAMADA 6: UTILIDADES (Hora, Nome, etc) ---
         util_res = self.generate_util_response(text_clean)
         if util_res: return util_res
 
-        # --- CAMADA 6: ASSIMILAÇÃO DE CONHECIMENTO (API de Livros) ---
-        # Se ela não sabe a resposta, ela "estuda" silenciosamente antes do fallback
+        # --- CAMADA 7: ASSIMILAÇÃO DE CONHECIMENTO (API de Livros) ---
         if len(text_clean) > 5: 
             logger.info(f"Lucy está pesquisando no acervo sobre: {text_clean}")
             external_info = self._fetch_external_knowledge(text_clean)
             if external_info:
                 return f"Pelo que compreendo sobre isso, {external_info} Faz sentido para você?"
 
-        # --- CAMADA 7: FALLBACK FINAL ---
+        # --- CAMADA 8: FALLBACK FINAL ---
         mood = self.detect_mood(user_input)
         responses = {
             'positive': "Fico feliz em conversar, mas ainda não sei como responder a isso. Pode me ensinar?",
             'negative': "Sinto muito por não entender. Sou apenas um recém-nascido, pode me explicar o que devo fazer?",
             'neutral': "Ainda não tenho essa resposta no meu cérebro. Como você quer que eu responda a isso?"
         }
-        return responses[mood]
+        return responses.get(mood, responses['neutral'])

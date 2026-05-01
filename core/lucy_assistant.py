@@ -9,6 +9,9 @@ from queue import Queue
 # Importações do Sistema Cognitivo
 from core.memory_system.episodic import EpisodicMemory
 from core.memory_system.social import SocialCortex
+from core.memory_system.working_memory import WorkingMemory  
+from core.memory_system.spatial import SpatialMemory  
+from core.memory_system.consolidation import SleepCycle      
 
 # Importação das configurações
 try:
@@ -30,14 +33,16 @@ logger = logging.getLogger("LucyCore")
 
 class Lucy:
     """
-    ASSISTENTE LUCY - VERSÃO HUMANOIDE
+    ASSISTENTE LUCY - VERSÃO HUMANOIDE (Com suporte Híbrido Nuvem/Local)
     Gere voz, inteligência e memória biológica de forma assíncrona.
     """
     
     def __init__(self):
-        # 1. Camada de Memória Cognitiva
+        # 1. Camada de Memória Cognitiva Completa
         self.episodic_memory = EpisodicMemory()
         self.social_cortex = SocialCortex()
+        self.working_memory = WorkingMemory(capacity=5)  # RAM do humanoide
+        self.spatial_memory = SpatialMemory()            # Mapa físico 3D
         
         # 2. Estado do Sistema
         self._start_time = time.time()
@@ -59,9 +64,25 @@ class Lucy:
 
         # 4. Interface Sensorial e Processamento
         from core.lucy_voice import LucyVoice
-        from core.lucy_brain import LucyBrain
         self.voice = LucyVoice(self.user_name)
-        self.brain = LucyBrain(self.memory)
+        
+        # --- O INTERRUPTOR DE CÉREBROS (NUVEM vs LOCAL) ---
+        try:
+            from config import USE_CLOUD_BRAIN, GEMINI_API_KEY
+            if USE_CLOUD_BRAIN:
+                from core.lucy_brain_cloud import LucyBrainCloud
+                self.brain = LucyBrainCloud(self.memory, api_key=GEMINI_API_KEY)
+                logger.info("☁️ Conectado ao Cérebro de Nuvem (Gemini).")
+            else:
+                from core.lucy_brain import LucyBrain
+                self.brain = LucyBrain(self.memory)
+                logger.info("🧠 Usando Cérebro Local Clássico (Regex).")
+        except ImportError:
+            # Caso dê algum erro ou as variáveis não existam no config.py, volta para o antigo
+            from core.lucy_brain import LucyBrain
+            self.brain = LucyBrain(self.memory)
+            logger.warning("⚠️ Usando Cérebro Local (Fallback Automático).")
+        # ---------------------------------------------------
         
         # 5. Módulo de Competências (Skills)
         self.skill_manager = None
@@ -158,24 +179,39 @@ class Lucy:
         """Decide se usa uma Skill ou o Cérebro geral"""
         response = None
         
-        # Prioridade 1: Competências específicas
+        # Prioridade 1: Competências específicas (As skills locais continuam funcionando!)
         if self.skill_manager:
             response, _ = self.skill_manager.find_and_execute(user_input)
 
         # Prioridade 2: Processamento Neural (Brain)
         if not response:
-            response = self.brain.think(user_input)
+            try:
+                # Tenta usar o Cérebro de Nuvem passando TODOS os contextos
+                response = self.brain.think(
+                    user_input, 
+                    spatial_memory=self.spatial_memory,
+                    working_memory=self.working_memory,
+                    social_cortex=self.social_cortex
+                )
+            except TypeError:
+                # Trava de segurança: Se estivermos usando o Cérebro Local Clássico,
+                # ele aceita menos parâmetros, então chamamos do jeito antigo.
+                response = self.brain.think(user_input, spatial_memory=self.spatial_memory)
 
         final_response = response or "A minha rede neural não gerou uma resposta. Pode reformular?"
+        
+        # --- ATUALIZAÇÃO SENSORIAL E DE CURTO PRAZO ---
+        self.working_memory.add_interaction(user_input, final_response)
+        
         self.speak(final_response)
         
-        # --- REGISTO DE MEMÓRIA EPISÓDICA (Fase Humanoide) ---
+        # --- REGISTO DE MEMÓRIA EPISÓDICA (Longo Prazo) ---
         self.episodic_memory.create_episode(
             event_type="dialogue",
             agent=self.user_name,
             location="environment_alpha", # Localização base
             content={"input": user_input, "output": final_response},
-            valence=0.5 # Neutro por padrão, expansível para análise de sentimento
+            valence=0.5 
         )
         self.social_cortex.update_interaction(self.user_name)
         
@@ -188,22 +224,46 @@ class Lucy:
         if any(w in t for w in ['sair', 'tchau', 'desligar']):
             self._shutdown()
             return True
+            
         if 'status' in t:
-            self.speak("Sistemas operacionais. Memória episódica e córtex social ativos.")
+            self.speak("Sistemas operacionais. Memória episódica, espacial e córtex social ativos.")
             return True
+            
+        # --- Comando de Sono (Consolidação) ---
+        if any(w in t for w in ['vá dormir', 'vai dormir', 'hibernar']):
+            self.speak("Entrando em ciclo de sono profundo para consolidar memórias. Boa noite!")
+            
+            # Inicia o ciclo de sono bloqueando a thread principal rapidamente
+            sleep_cycle = SleepCycle(self.episodic_memory, self.social_cortex, self.memory)
+            apagadas = sleep_cycle.go_to_sleep()
+            
+            self.speak(f"Acordei. Limpei {apagadas} memórias inúteis da minha mente.")
+            return True
+            
         return False
 
     def _background_save(self):
         """Consolidação de memória em background"""
         logger.info("💾 Consolidando memórias...")
         threading.Thread(target=self.memory.save_all, daemon=True).start()
+        # Salva o mapa mental em background
+        threading.Thread(target=self.spatial_memory.save, daemon=True).start()
 
     def _shutdown(self):
         logger.info("🛑 Hibernando sistemas...")
         self.running = False
         self.speak(random.choice(self.farewells))
+        
+        # --- Consolidação final antes de desligar ---
+        logger.info("💤 Executando ciclo de sono antes de desligar a energia...")
+        sleep_cycle = SleepCycle(self.episodic_memory, self.social_cortex, self.memory)
+        sleep_cycle.go_to_sleep()
+        
+        # Salva todos os estados cognitivos
         self.memory.save_all()
-        self.social_cortex.save() # Garante que o progresso social é salvo
+        self.social_cortex.save() 
+        self.spatial_memory.save()
+        
         self.voice.stop()
         sys.exit(0)
 
